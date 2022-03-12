@@ -24,6 +24,7 @@ export const registerUser = async (userObject) => {
       }).then(response => response.json())
         .then(result => {
           console.log(result);
+          return result;
         })
         .catch(console.error);
     }

@@ -4,6 +4,8 @@ import { registerUser } from "./api";
 
 const RegisterForm = () => {
 
+    // const {setToken} = props;
+
     const [username, setUsername] = useState("");
     const [passwordOne, setPasswordOne] = useState("");
     const [passwordTwo, setPasswordTwo] = useState("");
@@ -53,7 +55,8 @@ let userObject = {
             <button  
                 onClick={(event) => {
                     event.preventDefault()
-                    if (passwordMatch) { registerUser(userObject)}
+                    if (passwordMatch) { registerUser(userObject) }
+                    console.log("registerUser", registerUser(userObject));
                 }}>Register</button>
         </form>
     )
