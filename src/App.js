@@ -7,12 +7,13 @@ import RegisterForm from "./RegisterForm";
 // const [token, setToken] = useState("");
 
 
+
 const App = (props) => {
   const { name } = props;
   return (
     <>
       <h1>Welcome, {name}</h1>
-      <RegisterForm  />
+      <RegisterForm   />
       <PostList />
     </>
   );
