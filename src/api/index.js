@@ -1,3 +1,5 @@
+// import { useState } from "react/cjs/react.production.min";
+
 const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt'
 
 export const getPosts = async () => {
@@ -12,21 +14,25 @@ export const getPosts = async () => {
         return response
 };
 
-export const registerUser = async (userObject) => {
-    const url = `${baseUrl}/users/register`;
-    await fetch(url, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userObject)
-      }).then(response => response.json())
-        .then(result => {
-          console.log(result);
-        })
-        .catch(console.error);
 
-    }
+
+export const registerUser = async (userObject) => {
+  const url = `${baseUrl}/users/register`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userObject)
+  });
+const json= await response.json();
+localStorage.setItem('access_token', json.data.token);
+return json
+};
+
+console.log(localStorage);
+  
+
 
 
 

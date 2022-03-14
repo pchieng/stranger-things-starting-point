@@ -1,26 +1,33 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
+// import { useEffect } from "react/cjs/react.production.min";
 import { registerUser } from "./api";
 
 
 const RegisterForm = () => {
-
-    // const {setToken} = props;
-
-    const [username, setUsername] = useState("");
-    const [passwordOne, setPasswordOne] = useState("");
-    const [passwordTwo, setPasswordTwo] = useState("");
-
-
-
-    let passwordMatch = (passwordOne === passwordTwo);
-
-    let userObject = {
-        user: {
-            username: username,
-            password: passwordTwo
+    
+    
+    // const [posts, setPosts] = useState([]);
+    
+    // useEffect(async () => {
+        //     const posts = await getPosts();
+        //     setPosts(posts.data.posts);
+        // }, []);
+        
+        const [username, setUsername] = useState("");
+        const [passwordOne, setPasswordOne] = useState("");
+        const [passwordTwo, setPasswordTwo] = useState("");
+        // const [token, setToken] = useState('');
+        
+        let passwordMatch = (passwordOne === passwordTwo);
+        
+        let userObject = {
+            user: {
+                username: username,
+                password: passwordTwo
+            }
         }
-    }
-
+        
+        
 
     return (
         <form>
@@ -37,10 +44,10 @@ const RegisterForm = () => {
             <br />
 
             <label htmlFor="pwd">Password: </label>
-            <input
-                type="password"
-                id="pwd"
-                name="pwd"
+            <input 
+                type="password" 
+                id="pwd" 
+                name="pwd" 
                 minLength="5"
                 onChange={(event) => { setPasswordOne(event.target.value) }}
                 required
@@ -48,33 +55,25 @@ const RegisterForm = () => {
             <br />
 
             <label htmlFor="pwdConf">Confirm Password: </label>
-            <input
-                type="password"
-                id="pwdConf"
-                name="pwdConf"
-                minLength="5"
-                onChange={(event) => { setPasswordTwo(event.target.value) }}
+            <input 
+                type="password" 
+                id="pwdConf" 
+                name="pwdConf" 
+                minLength="5" 
+                onChange={(event) => { setPasswordTwo(event.target.value) }} 
                 required></input>
             <br />
             <button
                 onClick={(event) => {
                     event.preventDefault()
-                    if (passwordMatch) {
-                        const response = async() => {
-                            
-                            const response = await registerUser(userObject)
-                            return response;
-                        };
-                        console.log("registerUser", response())
-                    }
-                    document.getElementById("username").value = "";
-                    document.getElementById("pwd").value = "";
-                    document.getElementById("pwdConf").value = "";
-
-                }}>Register</button>
+                    if (passwordMatch) { registerUser(userObject)} 
+                }
+                
+                }>Register</button>
+                
         </form>
     )
 }
-
+ 
 
 export default RegisterForm;
