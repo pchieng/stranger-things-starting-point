@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { registerUser } from "./api";
 
 
@@ -10,14 +10,18 @@ const RegisterForm = () => {
     const [passwordOne, setPasswordOne] = useState("");
     const [passwordTwo, setPasswordTwo] = useState("");
 
+
+
     let passwordMatch = (passwordOne === passwordTwo);
 
-let userObject = {
-    user: {
-        username: username,
-        password: passwordTwo
+    let userObject = {
+        user: {
+            username: username,
+            password: passwordTwo
+        }
     }
-}
+
+
     return (
         <form>
             <label htmlFor="username">Username: </label>
@@ -33,30 +37,40 @@ let userObject = {
             <br />
 
             <label htmlFor="pwd">Password: </label>
-            <input 
-                type="passwword" 
-                id="pwd" 
-                name="pwd" 
+            <input
+                type="password"
+                id="pwd"
+                name="pwd"
                 minLength="5"
-                onChange={(event) => { setPasswordOne(event.target.value) }} 
+                onChange={(event) => { setPasswordOne(event.target.value) }}
                 required
-                ></input>
-                <br />
+            ></input>
+            <br />
 
             <label htmlFor="pwdConf">Confirm Password: </label>
-            <input 
-                type="passwword" 
-                id="pwdConf" 
-                name="pwdConf" 
-                minLength="5" 
-                onChange={(event) => { setPasswordTwo(event.target.value) }} 
+            <input
+                type="password"
+                id="pwdConf"
+                name="pwdConf"
+                minLength="5"
+                onChange={(event) => { setPasswordTwo(event.target.value) }}
                 required></input>
-                <br />
-            <button  
+            <br />
+            <button
                 onClick={(event) => {
                     event.preventDefault()
-                    if (passwordMatch) { registerUser(userObject) }
-                    console.log("registerUser", registerUser(userObject));
+                    if (passwordMatch) {
+                        const response = async() => {
+                            
+                            const response = await registerUser(userObject)
+                            return response;
+                        };
+                        console.log("registerUser", response())
+                    }
+                    document.getElementById("username").value = "";
+                    document.getElementById("pwd").value = "";
+                    document.getElementById("pwdConf").value = "";
+
                 }}>Register</button>
         </form>
     )

@@ -1,6 +1,5 @@
 const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt'
 
-
 export const getPosts = async () => {
     const url = `${baseUrl}/posts`;
     const response = await fetch(url)
@@ -24,9 +23,9 @@ export const registerUser = async (userObject) => {
       }).then(response => response.json())
         .then(result => {
           console.log(result);
-          return result;
         })
         .catch(console.error);
+
     }
 
 
