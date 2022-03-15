@@ -24,17 +24,29 @@ export const registerUser = async (userObject) => {
     body: JSON.stringify(userObject)
   });
   const json = await response.json();
-  console.log(json)
-  localStorage.setItem('access_token', json.data.token);
-  return json
+  if (json.success) {    
+    localStorage.setItem("access_token", json.data.token);
+    return json.data.token;
+  } else {
+    alert(`${json.error.message}`);
+  }
 };
 
 
+export const loginAsUser = async (userObject) => {
+  const url = `${baseUrl}/users/login`;
 
-
-
-
-
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userObject),
+  });
+  const json = await response.json();
+  console.log(json);
+  return response
+}
 
 // export const createNewPost = async (newPost) => {
 //     const url = 'https://jsonplaceholder.typicode.com/posts/';
