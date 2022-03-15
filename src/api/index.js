@@ -1,45 +1,38 @@
 // import { useState } from "react/cjs/react.production.min";
 
-const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt'
-
+const baseUrl = "https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt";
 
 export const getPosts = async () => {
-    const url = `${baseUrl}/posts`;
-    const response = await fetch(url)
-        .then(response => response.json())
-        .then(result => {
-            return result;
-        })
-        .catch(console.error);
-        
-        return response
+  const url = `${baseUrl}/posts`;
+  const response = await fetch(url)
+    .then((response) => response.json())
+    .then((result) => {
+      return result;
+    })
+    .catch(console.error);
+
+  return response;
 };
-
-
 
 export const registerUser = async (userObject) => {
   const url = `${baseUrl}/users/register`;
   const response = await fetch(url, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(userObject)
+    body: JSON.stringify(userObject),
   });
-const json= await response.json();
-localStorage.setItem('access_token', json.data.token);
-return json
+  const json = await response.json();
+  if (json.success) {
+    console.log(json);
+    localStorage.setItem("access_token", json.data.token);
+  } else {
+    alert(`${json.error.message}`);
+  }
 };
 
 console.log(localStorage);
-  
-
-
-
-
-
-
-
 
 // export const createNewPost = async (newPost) => {
 //     const url = 'https://jsonplaceholder.typicode.com/posts/';
@@ -71,10 +64,6 @@ console.log(localStorage);
 //     console.log(json);
 //     return json;
 // };
-
-
-
-
 
 // export const deletePostById = async (postId) => {
 //     const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
