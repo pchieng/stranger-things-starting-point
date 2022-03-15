@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { registerUser } from "./api";
 
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
     
         const [username, setUsername] = useState("");
         const [passwordOne, setPasswordOne] = useState("");
         const [passwordTwo, setPasswordTwo] = useState("");
+        const {token, setToken} = props
+        
         
         let passwordMatch = (passwordOne === passwordTwo);
         
@@ -57,8 +59,8 @@ const RegisterForm = () => {
             <button
                 onClick={(event) => {
                     event.preventDefault()
-                    if (passwordMatch) { registerUser(userObject)} 
-                }
+                    if (passwordMatch) {  setToken(registerUser(userObject))} 
+                console.log(token)} 
                 
                 }>Register</button>
                 
