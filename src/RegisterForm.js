@@ -5,18 +5,9 @@ import { registerUser } from "./api";
 
 const RegisterForm = () => {
     
-    
-    // const [posts, setPosts] = useState([]);
-    
-    // useEffect(async () => {
-        //     const posts = await getPosts();
-        //     setPosts(posts.data.posts);
-        // }, []);
-        
         const [username, setUsername] = useState("");
         const [passwordOne, setPasswordOne] = useState("");
         const [passwordTwo, setPasswordTwo] = useState("");
-        // const [token, setToken] = useState('');
         
         let passwordMatch = (passwordOne === passwordTwo);
         
