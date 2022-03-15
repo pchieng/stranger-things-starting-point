@@ -24,6 +24,7 @@ export const registerUser = async (userObject) => {
     body: JSON.stringify(userObject)
   });
   const json = await response.json();
+  console.log(json)
   localStorage.setItem('access_token', json.data.token);
   return json
 };
