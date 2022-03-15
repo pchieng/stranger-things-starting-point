@@ -1,5 +1,3 @@
-// import { useState } from "react/cjs/react.production.min";
-
 const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt'
 
 export const getPosts = async () => {
@@ -29,9 +27,6 @@ const json= await response.json();
 localStorage.setItem('access_token', json.data.token);
 return json
 };
-
-console.log(localStorage);
-  
 
 
 
