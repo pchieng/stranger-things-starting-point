@@ -59,8 +59,14 @@ const RegisterForm = (props) => {
             <button
                 onClick={(event) => {
                     event.preventDefault()
-                    if (passwordMatch) {  setToken(registerUser(userObject))} 
-                console.log(token)} 
+                    if (passwordMatch) {
+                        setToken(registerUser(userObject))
+                        localStorage.setItem("access_token", token);                    
+                    } 
+                    document.getElementById('username').value = '';
+                    document.getElementById('pwd').value = '';
+                    document.getElementById('pwdConf').value = '';
+                } 
                 
                 }>Register</button>
                 

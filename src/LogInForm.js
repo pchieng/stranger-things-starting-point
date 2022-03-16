@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import { loginAsUser } from "./api";
 
 
-const LogIn = () => {
+const LogInForm = (props) => {
     
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('');
-    
+    const {token, setToken} = props;
 
 
     let userObject = {
@@ -18,12 +18,12 @@ const LogIn = () => {
 
     return (
     
-        <form>
-            <label htmlFor="username">Username: </label>
+        <form id="logInForm">
+            <label htmlFor="logInUsername">Username: </label>
             <input
                 type="text"
-                id="username"
-                name="username"
+                id="logInUsername"
+                name="logInUsername"
                 minLength="5"
                 onChange={(event) => { setUsername(event.target.value) }}
                 required
@@ -31,11 +31,11 @@ const LogIn = () => {
             </input>
             <br />
 
-            <label htmlFor="pwd">Password: </label>
+            <label htmlFor="logInPwd">Password: </label>
             <input 
                 type="password" 
-                id="pwd" 
-                name="pwd" 
+                id="logInPwd" 
+                name="logInPwd" 
                 minLength="5"
                 onChange={(event) => { setPassword(event.target.value) }} 
                 required
@@ -43,7 +43,11 @@ const LogIn = () => {
                 <br />
               <button onClick={(event) =>  {
                   event.preventDefault(); 
-                  loginAsUser(userObject)}}
+                  setToken(loginAsUser(userObject));
+                  localStorage.setItem('access_token', token);
+                  document.getElementById('logInUsername').value = '';
+                  document.getElementById('logInPwd').value = '';
+                }}
               >Log In
               </button>  
             </ form>
@@ -51,4 +55,4 @@ const LogIn = () => {
     )
 } 
 
-export default LogIn
+export default LogInForm
