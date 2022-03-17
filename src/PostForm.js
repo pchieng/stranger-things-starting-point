@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import { createNewPost } from "./api";
 
-const PostForm = () => {
+const PostForm = (props) => {
+
+const {posts, setPosts} = props;
 
 const [postTitle, setPostTitle] = useState('');
 const [postDescription, setPostDescription] = useState('');
@@ -10,10 +12,10 @@ const [postWillDeliver, setPostWillDeliver] = useState(false);
 
 let newPost = {
     post: {
-        title: {postTitle},
-        description: {postDescription},
-        price: {postPrice},
-        willDeliver: {postWillDeliver}
+        title: postTitle,
+        description: postDescription,
+        price: postPrice,
+        willDeliver: postWillDeliver
     }
 }
 
@@ -55,9 +57,11 @@ let newPost = {
             />
             <br />
             <button
-                onClick={(event) => {
-                    event.preventDefault()
-                    createNewPost(newPost);
+                onClick={async (event) => {
+                    event.preventDefault();
+                    const postToAdd = await createNewPost(newPost);
+                    setPosts([...posts, postToAdd]);
+                    console.log(posts);
                     document.getElementById('newPostTitle').value = '';
                     document.getElementById('newPostDescription').value = '';
                     document.getElementById('newPostPrice').value = '';

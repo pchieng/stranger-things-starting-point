@@ -6,7 +6,7 @@ const LogInForm = (props) => {
     
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('');
-    const {token, setToken} = props;
+    const {setToken} = props;
 
 
     let userObject = {
@@ -44,7 +44,6 @@ const LogInForm = (props) => {
               <button onClick={(event) =>  {
                   event.preventDefault(); 
                   setToken(loginAsUser(userObject));
-                  localStorage.setItem('access_token', token);
                   document.getElementById('logInUsername').value = '';
                   document.getElementById('logInPwd').value = '';
                 }}
