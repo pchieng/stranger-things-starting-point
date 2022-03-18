@@ -15,6 +15,8 @@ const App = (props) => {
   const [token, setToken] = useState(localStorage.getItem('access_token') ? localStorage.getItem('access_token') : null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [message, setMessages] = useState([]);
+  
 
   async function isValidJWT() {
     const token = localStorage.getItem("access_token");
@@ -48,7 +50,7 @@ const App = (props) => {
         }}
       >Log Out</button>
       <PostForm posts={posts} setPosts={setPosts} />
-      {isLoggedIn ? <PostList posts={posts} setPosts={setPosts} /> : <p> Please log in </p>}
+      {isLoggedIn ? <PostList posts={posts} setPosts={setPosts} message={message} setMessages={setMessages} /> : <p> Please log in </p>}
 
       
     </>

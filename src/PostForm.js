@@ -60,8 +60,7 @@ let newPost = {
                 onClick={async (event) => {
                     event.preventDefault();
                     const postToAdd = await createNewPost(newPost);
-                    setPosts([...posts, postToAdd]);
-                    console.log(posts);
+                    setPosts([...posts, postToAdd]);                    
                     document.getElementById('newPostTitle').value = '';
                     document.getElementById('newPostDescription').value = '';
                     document.getElementById('newPostPrice').value = '';

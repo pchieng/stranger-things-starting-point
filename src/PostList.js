@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
-import { deletePostById, getPosts } from './api';
+import React, { useEffect, useState } from 'react';
+import { deletePostById, getPosts, messageById } from './api';
 
 const PostList = (props) => {
-    const {posts, setPosts} = props;
+    const {posts, setPosts, message, setMessages} = props;
+    const [messageTest, setMessagesTest] = useState('')
+    let messageToUser = {
+        message: {
+            content: messageTest
+        }
+    }
 
     useEffect(async () => {
         const posts = await getPosts();
         setPosts(posts.data.posts);
     }, []);
 
-console.log(posts)
 
 
     return (
@@ -26,7 +31,29 @@ console.log(posts)
                             let filterPosts = posts.filter(allpost => allpost._id !== post._id)
                             setPosts(filterPosts);
                         }}
-                        >Delete</button> : <></>
+                        >Delete</button> : 
+                        <form id= 'messageForm'>
+                            <label htmlFor="messageUser">Message poster about this product: </label>
+                            <input type="text"
+                                   id="messageUser"
+                                   name="messageUser"
+                                   onChange={(event) => { setMessagesTest(event.target.value) }}
+                            />
+                            <br />
+                            <button
+                                onClick={async (event) => {
+                                    event.preventDefault();
+                                    const messageToAdd = await messageById(messageToUser, post._id);
+                                    setMessages([...message, messageToAdd])
+                                    console.log(messageToUser)
+                                    console.log(post._id)
+                                    document.getElementById('messageUser').value= '';
+                                }
+                                }>Submit Message to this User</button>
+
+                        </form>
+                        
+                        
 }
                 </div>
             )}
