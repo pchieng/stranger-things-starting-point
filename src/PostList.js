@@ -45,8 +45,6 @@ const PostList = (props) => {
                                     event.preventDefault();
                                     const messageToAdd = await messageById(messageToUser, post._id);
                                     setMessages([...message, messageToAdd])
-                                    console.log(messageToUser)
-                                    console.log(post._id)
                                     document.getElementById('messageUser').value= '';
                                 }
                                 }>Submit Message to this User</button>
