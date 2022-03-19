@@ -21,6 +21,9 @@ const PostList = (props) => {
     return (
         <>
         <h1>POSTS</h1>
+        <SearchBar posts={posts} setPosts={setPosts} />
+
+
         <Link to="/createpost">
             <button>Create New Post</button>
         </Link>

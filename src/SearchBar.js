@@ -1,28 +1,28 @@
-// import React  from "react";
+import React, {useState}  from "react";
 
 
 
-// const SearchBar = () => {
-//     const [searchTerm, setSearchTerm] = useState('');
+const SearchBar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
 
-// return (
-//     <form>
-//         <input
-//             type="text"
-        
-//         />
-
-
-
-//     </form>
+return (
+    <form>
+        <input
+            type="text"
+            onChange={(event) => setSearchTerm(event.target.value)}
+        />
 
 
 
-// )
-
-
-// }
+    </form>
 
 
 
-// export default SearchBar;
+)
+
+
+}
+
+
+
+export default SearchBar;
