@@ -78,21 +78,18 @@ export const loginAsUser = async (userObject) => {
 
 
 
-export const getUserData = async (userObject) => {
+export const getUserData = async () => {
   const url = `${baseUrl}/users/me`;
 
   const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem("access_token")}`
-    },
-    body: JSON.stringify(userObject),
+    }
   });
   const json = await response.json();
   if (json.success) {
-    console.log("Logged In!")
-    // console.log(json)
-    return json;
+    return json.data.messages;
   } else {
     alert(`${json.error.message}`)
   }

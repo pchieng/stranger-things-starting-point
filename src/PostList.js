@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { deletePostById, getPosts, messageById } from './api';
+import { Link } from 'react-router-dom';
 
 const PostList = (props) => {
     const {posts, setPosts, message, setMessages} = props;
@@ -18,6 +19,11 @@ const PostList = (props) => {
 
 
     return (
+        <>
+        <h1>POSTS</h1>
+        <Link to="/createpost">
+            <button>Create New Post</button>
+        </Link>
         <div>
             {posts.map(post =>
                 <div key={post._id}>
@@ -56,6 +62,7 @@ const PostList = (props) => {
                 </div>
             )}
         </div>
+        </>
     );
 };
 

@@ -22,6 +22,8 @@ let newPost = {
 
 
     return (
+        <>
+        <h1>Create A New Post</h1>
         <form id='postForm'>
             <label htmlFor="newPostTitle">Title: </label>
             <input
@@ -70,7 +72,7 @@ let newPost = {
                 }>Submit</button>
         </form>
 
-
+        </>
 
 
     )
