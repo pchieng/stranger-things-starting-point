@@ -11,7 +11,6 @@ export const getPosts = async () => {
   })
     .then(response => response.json())
     .then(result => {
-      // console.log(result)
       return result;
     })
     .catch(console.error);
@@ -69,7 +68,6 @@ export const loginAsUser = async (userObject) => {
   const json = await response.json();
   if (json.success) {
     localStorage.setItem('access_token', json.data.token);
-    console.log(json.data.token)
     return json.data.token;
   } else {
     alert(`${json.error.message}`)
@@ -109,9 +107,7 @@ export const createNewPost = async (newPost) => {
     body: JSON.stringify(newPost)
   })
   const json = await response.json();
-  console.log(newPost)
   if (json.success) {
-    // console.log(json)
     return json.data.post;
   } else {
     alert(`${json.error.message}`)
@@ -148,10 +144,8 @@ export const deletePostById = async (postId) => {
   });
   const json = await response.json();
   if (json.success) {
-    // console.log(json)
     return json;
   } else {
-    console.log(json)
     alert(`${json.error.message}`)
   }
 };
@@ -165,15 +159,12 @@ export const messageById = async (messageToUser, postId) => {
       'Authorization': `Bearer ${localStorage.getItem("access_token")}`
     },
     body: JSON.stringify(messageToUser)
-    
+  
   });
   const json = await response.json();
-  console.log(messageToUser)
   if(json.success) {
-    console.log(json , "This one!")
     return json;
   } else {
-    console.log(json , "This one!")
     alert(`${json.error.message}`)
   }  
 };

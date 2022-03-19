@@ -6,7 +6,6 @@ const MessagesList = () => {
     const [userData, setUserData] = useState([]);
     useEffect(async () => setUserData(await getUserData()), []);
 
-    console.log("messagesList", userData)
     return (
         <div>
             {userData.map(message =>

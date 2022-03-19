@@ -71,7 +71,7 @@ const RegisterForm = (props) => {
 
                 }>Register</button>
             <br />
-            <Link to="/login">
+            <Link to="/">
                 <a>Already have an account? Please log in</a>
             </Link>
 

@@ -37,16 +37,14 @@ const LogInForm = (props) => {
                 required
             ></input>
             <br />
-            <Link to="/">
             <button onClick={(event) => {
                 event.preventDefault();
                 setToken(loginAsUser(userObject));
                 document.getElementById('logInUsername').value = '';
                 document.getElementById('logInPwd').value = '';
-            }}
-            >Log In
+            }}>
+                Log In
             </button>
-            </Link>
             <br />
             <Link to="/register">
                 <a>Don&apos;t have an account? Register here</a>

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { createNewPost } from "./api";
+import {Link} from 'react-router-dom';
 
 const PostForm = (props) => {
 
@@ -58,6 +59,7 @@ let newPost = {
                 onChange={() => { setPostWillDeliver(!postWillDeliver) }}
             />
             <br />
+            <Link to="/posts">
             <button
                 onClick={async (event) => {
                     event.preventDefault();
@@ -70,6 +72,7 @@ let newPost = {
                 } 
                 
                 }>Submit</button>
+                </Link>
         </form>
 
         </>
