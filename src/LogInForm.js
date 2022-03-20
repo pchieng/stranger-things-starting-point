@@ -13,7 +13,7 @@ const LogInForm = (props) => {
 
     return (
 
-        <form id="logInForm">
+        <form id="logInForm" class="formcontainer">
             <h1>Log In</h1>
             <label htmlFor="logInUsername">Username: </label>
             <input

@@ -9,10 +9,10 @@ const MessagesList = () => {
     return (
         <div>
             {userData.map(message =>
-                <div key={message._id}>
+                <div  class="messages" key={message._id}>
                     <p>{`Message From: ${message.fromUser.username}`}</p>
                     <p>{`Message: ${message.content}`}</p>
-                    <p>=============================</p>
+                    
                 </div>
             )}
         </div>

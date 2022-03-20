@@ -51,7 +51,7 @@ const App = () => {
       
         <Route exact path="/">
           {isLoggedIn ?
-          <h1>Welcome to Stranger&apos;s Things</h1>
+          <h1 className="welcometext">Welcome to Stranger&apos;s Things</h1>
           :
           <LogInForm setToken={setToken} userObject={userObject} setUsername={setUsername} setPassword={setPassword} />
         }

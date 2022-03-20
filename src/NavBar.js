@@ -8,27 +8,27 @@ const {isLoggedIn, loggedInUsername} = props;
 
     return (
         <div id="navbar">
-            <div id="siteName">
+            <div id="siteName" class="navtext">
                 Stranger&apos;s Things
             </div>
             <div id="siteLinks">
             {isLoggedIn ?
-                <span>{`Welcome, ${loggedInUsername}`}</span>
+                <span class="navtext">{`Welcome, ${loggedInUsername}`}</span>
                 :
-                <span>Welcome, Guest</span>
+                <span class="navtext">Welcome, Guest</span>
             }
 
             <Link to="/">
-                <a>HOME</a>
+                <a class="navtext">HOME</a>
             </Link>
 
             <Link to="/posts">
-                <a>POSTS</a>
+                <a class="navtext">POSTS</a>
             </Link>
 
             {isLoggedIn ?
                 <Link to="/messages">
-                    <a>MESSAGES</a>
+                    <a class="navtext">MESSAGES</a>
                 </Link>
                 :
                 null
@@ -36,7 +36,7 @@ const {isLoggedIn, loggedInUsername} = props;
 
             {isLoggedIn ?
                 <Link to="/">
-                    <a
+                    <a class="navtext"
                         onClick={() => {
                             localStorage.removeItem("access_token");
                         }}>LOG OUT</a>

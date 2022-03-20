@@ -23,7 +23,7 @@ const RegisterForm = (props) => {
 
 
     return (
-        <form>
+        <form class="registerformcontainer">
             <h1>Create an Account</h1>
             <label htmlFor="username">Username: </label>
             <input

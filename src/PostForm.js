@@ -24,8 +24,8 @@ let newPost = {
 
     return (
         <>
-        <h1>Create A New Post</h1>
-        <form id='postForm'>
+        <h1 class="posts">Create A New Post</h1>
+        <form id='postForm' class="posts">
             <label htmlFor="newPostTitle">Title: </label>
             <input
                 type="text"
