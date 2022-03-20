@@ -41,7 +41,7 @@ const PostList = (props) => {
                         <p>{post.description}</p>
                         <p>{post.price}</p>
                         {post.isAuthor ?
-                            <button class="deletepost"
+                            <button className="deletepost"
                                 onClick={() => {
                                     deletePostById(post._id)
                                     let filterPosts = posts.filter(allpost => allpost._id !== post._id)

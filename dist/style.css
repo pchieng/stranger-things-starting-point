@@ -1,12 +1,31 @@
 #navbar {
     background-color: #11475f;
+    color:aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 28px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 95vw;
+    padding: 10px 5px;
     
 }
+
+#siteLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#siteLinks a {
+    margin: 0px 10px;
+}
+
+#logInForm {
+    text-align: center;
+}
+
+
+
 
 .navtext {
     justify-content: space-around;
@@ -39,12 +58,39 @@ a:active {
 }
 
 .welcometext {
-    padding-left: 20px;
+    text-align: center;
+    margin-top: 30vh;
+    font-size: 3rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#postPage {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#postList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-top: 40px;
+}
+
+
+
 .posts {
-    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: black;
+    box-shadow: 3px 3px 2px gray;
+    margin: 10px 0px;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -58,8 +104,18 @@ button {
     padding-left: 20px;
 }
 
-#searchbar {
+#searchBar {
+    width: 80%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+#searchBar input {
+    width: 60%;
+    margin-right: 5px;
+}
+
+#newPostButton {
+    margin-top: 30px;
+    font-size: 1.3rem;
 }
 
