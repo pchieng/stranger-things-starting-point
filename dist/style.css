@@ -7,7 +7,6 @@
     font-size: 28px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 10px 5px;
-    
 }
 
 #siteLinks {
@@ -24,13 +23,9 @@
     text-align: center;
 }
 
-
-
-
 .navtext {
     justify-content: space-around;
     padding-left: 10px;
-    
 }
 
 a:visited {
@@ -50,11 +45,9 @@ a:active {
     padding-left: 20px;
 }
 
-.registerformcontainer{
+.registerformcontainer {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-left: 20px;
-    display: flexbox;
-    align-items: center;
+    text-align: center;
 }
 
 .welcometext {
