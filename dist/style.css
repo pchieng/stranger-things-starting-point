@@ -1,0 +1,65 @@
+#navbar {
+    background-color: #11475f;
+    font-size: 28px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 95vw;
+    
+}
+
+.navtext {
+    justify-content: space-around;
+    padding-left: 10px;
+    
+}
+
+a:visited {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+a:active {
+    color: inherit;
+}
+
+.formcontainer {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 20px;
+}
+
+.registerformcontainer{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 20px;
+    display: flexbox;
+    align-items: center;
+}
+
+.welcometext {
+    padding-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.posts {
+    padding-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+.messages {
+    border-bottom: 2px solid black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 20px;
+}
+
+#searchbar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
